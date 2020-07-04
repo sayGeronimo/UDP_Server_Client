@@ -10,6 +10,7 @@
 int main(int argc, char const *argv[])
 {
     char *helloworldtext = "Hello world.";
+    int port = atoi(argv[1]);
     struct sockaddr_in ServerAddr = {0};
 
     int sock_obj = socket(AF_INET, SOCK_DGRAM, 0);
@@ -20,7 +21,7 @@ int main(int argc, char const *argv[])
     }
 
     ServerAddr.sin_family = AF_INET;
-    ServerAddr.sin_port = htons(2023);
+    ServerAddr.sin_port = htons(port);
     ServerAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
     int size = sendto(sock_obj, (const char *)helloworldtext, strlen(helloworldtext), 0, (const struct sockaddr *)&ServerAddr, sizeof(ServerAddr));

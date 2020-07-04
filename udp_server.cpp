@@ -10,6 +10,8 @@
 int main(int argc, char const *argv[])
 {
     char buffer[512] = {0};
+    
+    int port = atoi(argv[1]);
     struct sockaddr_in servaddr = {0};
 
     int sockfd = socket(AF_INET, SOCK_DGRAM, 0);
@@ -20,7 +22,7 @@ int main(int argc, char const *argv[])
     }
 
     servaddr.sin_family = AF_INET;
-    servaddr.sin_port = htons(9095);
+    servaddr.sin_port = htons(port);
     servaddr.sin_addr.s_addr = INADDR_ANY;
 
     int check_bind = bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr));
