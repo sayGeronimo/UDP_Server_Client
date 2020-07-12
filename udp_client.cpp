@@ -9,7 +9,7 @@
 
 int main(int argc, char const *argv[])
 {
-    char *helloworldtext = "Hello world.";
+    char *helloworldtext = "class test.";
     int port = atoi(argv[1]);
     struct sockaddr_in ServerAddr = {0};
 
